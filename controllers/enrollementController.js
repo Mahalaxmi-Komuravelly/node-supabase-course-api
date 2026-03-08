@@ -7,7 +7,7 @@ try {
         student_name,
         course_id
     }
-    const {data,error} = await supabase.from("enrollments").insert(payload).select.single();
+    const {data,error} = await supabase.from("enrollments").insert(payload).select().single();
     if(error){
             res.status(500).json({message:"Error while adding student"});
     }
