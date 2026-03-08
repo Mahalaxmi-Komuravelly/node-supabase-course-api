@@ -16,3 +16,18 @@ try {
     res.status(500).json({message:"Internal Server Error"});
 }
 }
+
+export const getEnrollementsByCourse = async (req,res) => {
+    try {
+        const {id} = req.params;
+        const {data,error} = await supabase.from("enrollments").select().eq("course_id",id);
+        if(error){
+            res.status(500).json({message:"Error while fetching students"});
+    }
+            res.status(201).json({message:"students List",data});
+
+    } catch (error) {
+            res.status(500).json({message:"Internal Server Error"});
+
+    }
+}
