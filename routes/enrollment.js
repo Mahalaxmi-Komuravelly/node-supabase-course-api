@@ -4,4 +4,4 @@ import validateEnrollment from "../middleware/validateEnrollment.js";
 export const EnrollmentRouter = express.Router();
 
 EnrollmentRouter.post("/",validateEnrollment,addStudent);
-EnrollmentRouter.get("/",getEnrollementsByCourse);
+EnrollmentRouter.get("/courses/:id/enrollements",getEnrollementsByCourse);
