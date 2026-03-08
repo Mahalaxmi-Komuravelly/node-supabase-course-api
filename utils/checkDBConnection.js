@@ -1,3 +1,4 @@
+import supabase from "../supabaseClient.js";
 export const checkDBConnection = async() => {
     try {
         const {error} = await supabase.from("courses").select("id").limit(1);
@@ -7,6 +8,6 @@ export const checkDBConnection = async() => {
         }
         console.log("Database connected successfully")
     } catch (error) {
-        console.log("Error while connecting to database")
+        console.log("Error while connecting to database",error.message)
     }
 }
